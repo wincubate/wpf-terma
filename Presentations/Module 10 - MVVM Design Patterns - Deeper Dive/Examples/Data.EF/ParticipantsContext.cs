@@ -8,7 +8,7 @@ namespace Wincubate.MvvmPatternsExamples.Data.EF
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(LocalDB)\MSSQLLocalDB;Database=90377;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=(LocalDB)\MSSQLLocalDB;Database=89098;Trusted_Connection=True;");
         }
     }
 }
