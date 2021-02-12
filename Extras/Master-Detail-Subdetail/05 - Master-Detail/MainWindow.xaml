@@ -1,0 +1,30 @@
+﻿<Window x:Class="Wincubate.DataBindingCollectionsExamples.Slide05.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:clr="clr-namespace:Wincubate.DataBindingCollectionsExamples.Data;assembly=Wincubate.DataBindingCollectionsExamples.Data"        
+        Title="Master-Detail with CLR Objects" Height="300" Width="300">
+    <Window.DataContext>
+        <clr:Participants />
+    </Window.DataContext>
+    <UniformGrid Rows="1" Columns="3">
+        <ListBox ItemsSource="{Binding}"
+                 DisplayMemberPath="FullName"
+                 IsSynchronizedWithCurrentItem="True"></ListBox>
+        <ListBox x:Name="lst"
+                 ItemsSource="{Binding Path=FavoriteModules}"
+                 DisplayMemberPath="Title"
+                 IsSynchronizedWithCurrentItem="True"></ListBox>
+        <ListBox ItemsSource="{Binding FavoriteModules/Slides}"
+                 DisplayMemberPath="Number"></ListBox>
+        
+        <!--<ListBox ItemsSource="{Binding}"
+                 DisplayMemberPath="FullName"
+                 IsSynchronizedWithCurrentItem="True"></ListBox>
+        <ListBox x:Name="lst"
+                 ItemsSource="{Binding Path=FavoriteModules}"
+                 DisplayMemberPath="Title"></ListBox>
+        <ListBox DataContext="{Binding ElementName=lst, Path=SelectedItem}"
+                 ItemsSource="{Binding Path=Slides}"
+                 DisplayMemberPath="Number"></ListBox>-->
+    </UniformGrid>
+</Window>
