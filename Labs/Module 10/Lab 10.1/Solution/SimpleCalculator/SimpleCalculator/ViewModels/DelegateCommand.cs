@@ -14,7 +14,7 @@ namespace SimpleCalculator
     /// </remarks>
     public class DelegateCommand : ICommand
     {
-        private readonly Predicate<object> _canExecute;
+        private readonly Func<object,bool> _canExecute;
         private readonly Action<object> _executeAction;
 
         #region ICommand Members
@@ -44,7 +44,7 @@ namespace SimpleCalculator
 
         #endregion
 
-        public DelegateCommand(Action<object> execute, Predicate<object> canExecute = null)
+        public DelegateCommand(Action<object> execute, Func<object,bool> canExecute = null)
         {
             Debug.Assert(execute != null);
 

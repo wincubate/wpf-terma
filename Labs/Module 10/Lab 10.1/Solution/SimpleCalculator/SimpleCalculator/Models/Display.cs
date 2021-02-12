@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SimpleCalculator
+﻿namespace SimpleCalculator
 {
-	class Display : ObservableObject
+    class Display : ObservableObject
 	{
 		public string Contents
 		{
@@ -22,18 +14,13 @@ namespace SimpleCalculator
 				{
 					_contents = value;
 					OnPropertyChanged();
+					OnPropertyChanged(nameof(IsEmpty));
 				}
 			}
 		}
 		private string _contents;
 
-		public bool IsEmpty
-		{
-			get
-			{
-				return Contents == "0";
-			}
-		}
+		public bool IsEmpty => Contents == "0";
 
 		public Display()
 		{
